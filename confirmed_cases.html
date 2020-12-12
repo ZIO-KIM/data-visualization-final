@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="links.css">
+    <title>Relationship between COVID19 and US Airport Usage</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Airport Name', 'Covid19 confirmed', 'Airport Usage'],
+          ['California, Los Angeles International', 2577, 72],
+          ['California, San Francisco International', 2577, 43],
+          ['Colorado, Denver International', 2558, 64],
+          ['Florida, Miami International', 4064, 78],
+          ['Georgia, Hartsfield-Jackson Atlanta International', 3830, 67],
+          ['Hawaii, Daniel K. Inouye International', 1154, 100],
+          ['Illinois, Chicago OHare International', 4260, 60],
+          ['Massachusetts, Boston Logan International', 2646, 76],
+          ['Michigan, Detroit Metropolitan Wayne County', 2575, 47],
+          ['North Carolina, Charlotte Douglas International', 2920, 56],
+          ['New Jersey, Newark Liberty International', 2957, 100],
+          ['Nevada, McCarran International', 3674, 24],
+          ['New York, LaGuardia', 2838, 78],
+          ['New York, John F. Kennedy International', 2838, 85],
+          ['Texas, Dallas/Fort Worth International', 3726, 80],
+          ['Virginia, Washington Dulles International', 2248, 65],
+          ['Washington, Seattle-Tacoma International', 1762, 67],
+        ]);
+
+        var options = {
+          width: 800,
+          height : 800,
+          chart: {
+            title: 'Airport Usage after Covid19, compared to 2020-01 usage'
+          },
+          bars: 'horizontal',
+          series: {
+            0: { axis: 'distance' },
+            1: { axis: 'brightness' }
+          },
+          axes: {
+            x: {
+              distance: {label: '(Covid19 Confirmed%Population)*100000'},
+              brightness: {side: 'top', label: 'Percent of Baseline (Airport Usage 2020-11%Airport Usage 2020-01)'}
+            }
+          }
+        };
+
+      var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+      chart.draw(data, options);
+    };
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Covid19 Confirmed'],
+          ['California', 1019689],
+          ['Colorado', 145709],
+          ['Florida', 865607],
+          ['Georgia', 402981],
+          ['Hawaii', 16403],
+          ['Illinois', 542788],
+          ['Massachusetts', 182648],
+          ['Michigan', 257474],
+          ['North Carolina', 303206],
+          ['New Jersey', 263492],
+          ['Nevada', 111504],
+          ['New York', 554798],
+          ['Texas', 1069676],
+          ['Virginia', 191521],
+          ['Washington', 132786]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 800,
+          height: 500,
+          colorAxis: {colors: ['#f2e1e1', '#f53838']}};
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+          options['colors'] = ['#e0e0d5'];
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Relationship between <span id=covid>COVID19</span> and <span id=airport>US Airport Usage</span></h1>
+      <button onclick="location.href='confirmed_cases.html'">Number of confirmed cases</button>
+      <button onclick="location.href='airport_usage.html'">Airport Usage</button>
+      <button onclick="location.href='companies.html'">Number of Companies</button>
+      <button onclick="location.href='foreign_students.html'">Number of Foreign Students</button>
+      <button onclick="location.href='show_all.html'">Show All</button>
+    </div>
+    <div class="covid_type">
+      <button onclick="location.href='covid_bar.html'" id="button_type">Bar chart</button>
+      <button onclick="location.href='covid_area.html'" id="button_type">Area chart</button>
+      <button onclick="location.href='covid_line.html'" id="button_type">Line chart</button>
+    </div>
+    <div id="regions_div" style="width: 1500px; height: 700px;"></div>
+    <button onclick="location.href='index.html'" id="main_button">Back to main</button>
+  </body>
+</html>

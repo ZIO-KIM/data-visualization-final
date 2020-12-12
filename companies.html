@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="links.css">
+    <title>Relationship between COVID19 and US Airport Usage</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Business number'],
+          ['California', 2059985],
+          ['Colorado', 374668],
+          ['Florida', 1657865],
+          ['Georgia', 578266],
+          ['Hawaii', 60783],
+          ['Illinois', 590383],
+          ['Massachusetts', 381009],
+          ['Michigan', 488317],
+          ['North Carolina', 523803],
+          ['New Jersey', 497773],
+          ['Nevada', 128048],
+          ['New York', 991421],
+          ['Texas', 1522960],
+          ['Virginia', 468260],
+          ['Washington', 417289]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 800,
+          height: 500,
+          colorAxis: {colors: ['#d5dfed', '#1e56b0']}};
+
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Relationship between <span id=covid>COVID19</span> and <span id=airport>US Airport Usage</span></h1>
+      <button onclick="location.href='confirmed_cases.html'">Number of confirmed cases</button>
+      <button onclick="location.href='airport_usage.html'">Airport Usage</button>
+      <button onclick="location.href='companies.html'">Number of Companies</button>
+      <button onclick="location.href='foreign_students.html'">Number of Foreign Students</button>
+      <button onclick="location.href='show_all.html'">Show All</button>
+    </div>
+    <div id="regions_div" style="width: 1500px; height: 700px;"></div>
+    <button onclick="location.href='index.html'" id="main_button">Back to main</button>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="links.css">
+    <title>Relationship between COVID19 and US Airport Usage</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Covid19 Confirmed'],
+          ['California', 1019689],
+          ['Colorado', 145709],
+          ['Florida', 865607],
+          ['Georgia', 402981],
+          ['Hawaii', 16403],
+          ['Illinois', 542788],
+          ['Massachusetts', 182648],
+          ['Michigan', 257474],
+          ['North Carolina', 303206],
+          ['New Jersey', 263492],
+          ['Nevada', 111504],
+          ['New York', 554798],
+          ['Texas', 1069676],
+          ['Virginia', 191521],
+          ['Washington', 132786]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 500,
+          height: 400,
+          colorAxis: {colors: ['#f2e1e1', '#f53838']}};
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+          options['colors'] = ['#e0e0d5'];
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div_1'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Airport Usage'],
+          ['California', 72],
+          ['Colorado', 64],
+          ['Florida', 78],
+          ['Georgia', 67],
+          ['Hawaii', 100],
+          ['Illinois', 60],
+          ['Massachusetts', 76],
+          ['Michigan', 47],
+          ['North Carolina', 56],
+          ['New Jersey', 100],
+          ['Nevada', 24],
+          ['New York', 85],
+          ['Texas', 80],
+          ['Virginia', 65],
+          ['Washington', 67]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 500,
+          height: 400};
+
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div_2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Business number'],
+          ['California', 2059985],
+          ['Colorado', 374668],
+          ['Florida', 1657865],
+          ['Georgia', 578266],
+          ['Hawaii', 60783],
+          ['Illinois', 590383],
+          ['Massachusetts', 381009],
+          ['Michigan', 488317],
+          ['North Carolina', 523803],
+          ['New Jersey', 497773],
+          ['Nevada', 128048],
+          ['New York', 991421],
+          ['Texas', 1522960],
+          ['Virginia', 468260],
+          ['Washington', 417289]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 500,
+          height: 400,
+          colorAxis: {colors: ['#d5dfed', '#1e56b0']}};
+
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div_3'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Number of International students'],
+          ['California', 160592],
+          ['Florida', 46221],
+          ['Illinois', 51966],
+          ['Massachusetts', 73695],
+          ['Michigan', 31408],
+          ['New York', 126911],
+          ['Texas', 77097]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 500,
+          height: 400,
+          colorAxis: {colors: ['#e1d8eb', '#781adb']}};
+
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div_4'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Relationship between <span id=covid>COVID19</span> and <span id=airport>US Airport Usage</span></h1>
+      <button onclick="location.href='confirmed_cases.html'">Number of confirmed cases</button>
+      <button onclick="location.href='airport_usage.html'">Airport Usage</button>
+      <button onclick="location.href='companies.html'">Number of Companies</button>
+      <button onclick="location.href='foreign_students.html'">Number of Foreign Students</button>
+      <button onclick="location.href='show_all.html'">Show All</button>
+    </div>
+    <div id="regions_div_1" style="width: 500px; height: 400px; margin-left: 12%; "></div>
+    <div id="regions_div_2" style="width: 500px; height: 400px; margin-top: -400px; margin-left: 52%;"></div>
+    <div id="regions_div_3" style="width: 500px; height: 400px; margin-left: 12%; "></div>
+    <div id="regions_div_4" style="width: 500px; height: 400px; margin-top: -400px; margin-left: 52%;"></div>
+    <button onclick="location.href='index.html'" id="main_button" style="margin-top: 100px; ">Back to main</button>
+  </body>
+</html>

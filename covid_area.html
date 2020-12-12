@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="links.css">
+    <title>Relationship between COVID19 and US Airport Usage</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Airport Name', 'Covid19 confirmed', 'Airport Usage'],
+        ['California, Los Angeles International', 2577, 72],
+        ['California, San Francisco International', 2577, 43],
+        ['Colorado, Denver International', 2558, 64],
+        ['Florida, Miami International', 4064, 78],
+        ['Georgia, Hartsfield-Jackson Atlanta International', 3830, 67],
+        ['Hawaii, Daniel K. Inouye International', 1154, 100],
+        ['Illinois, Chicago OHare International', 4260, 60],
+        ['Massachusetts, Boston Logan International', 2646, 76],
+        ['Michigan, Detroit Metropolitan Wayne County', 2575, 47],
+        ['North Carolina, Charlotte Douglas International', 2920, 56],
+        ['New Jersey, Newark Liberty International', 2957, 100],
+        ['Nevada, McCarran International', 3674, 24],
+        ['New York, LaGuardia', 2838, 78],
+        ['New York, John F. Kennedy International', 2838, 85],
+        ['Texas, Dallas/Fort Worth International', 3726, 80],
+        ['Virginia, Washington Dulles International', 2248, 65],
+        ['Washington, Seattle-Tacoma International', 1762, 67]
+        ]);
+
+        var options = {
+          title: 'Airport Usage after Covid19, compared to 2020-01 usage',
+          hAxis: {title: 'Airport',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          backgroundColor: { fill:'transparent' }
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  </head>
+  <body>
+    <div class="main">
+      <h1>Relationship between <span id=covid>COVID19</span> and <span id=airport>US Airport Usage</span></h1>
+      <button onclick="location.href='confirmed_cases.html'">Number of confirmed cases</button>
+      <button onclick="location.href='airport_usage.html'">Airport Usage</button>
+      <button onclick="location.href='companies.html'">Number of Companies</button>
+      <button onclick="location.href='foreign_students.html'">Number of Foreign Students</button>
+      <button onclick="location.href='show_all.html'">Show All</button>
+    </div>
+    <div class="covid_type">
+      <button onclick="location.href='covid_bar.html'" id="button_type">Bar chart</button>
+      <button onclick="location.href='covid_area.html'" id="button_type">Area chart</button>
+      <button onclick="location.href='covid_line.html'" id="button_type">Line chart</button>
+    </div>
+    <div id="chart_div" style="width: 800px; height: 700px; margin-left: 20%; margin-top: -20px; "></div>
+    <button onclick="location.href='index.html'" id="main_button" style="margin-top: 100px; ">Back to main</button>
+  </body>
+</html>

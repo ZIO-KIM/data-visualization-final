@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="links.css">
+    <title>Relationship between COVID19 and US Airport Usage</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Number of International students'],
+          ['California', 160592],
+          ['Florida', 46221],
+          ['Illinois', 51966],
+          ['Massachusetts', 73695],
+          ['Michigan', 31408],
+          ['New York', 126911],
+          ['Texas', 77097]
+        ]);
+
+        var options = {
+          backgroundColor: '#e0e0d5',
+          width: 800,
+          height: 500,
+          colorAxis: {colors: ['#e1d8eb', '#781adb']}};
+
+
+          options['region'] = 'US';
+          options['resolution'] = 'provinces';
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Relationship between <span id=covid>COVID19</span> and <span id=airport>US Airport Usage</span></h1>
+      <button onclick="location.href='confirmed_cases.html'">Number of confirmed cases</button>
+      <button onclick="location.href='airport_usage.html'">Airport Usage</button>
+      <button onclick="location.href='companies.html'">Number of Companies</button>
+      <button onclick="location.href='foreign_students.html'">Number of Foreign Students</button>
+      <button onclick="location.href='show_all.html'">Show All</button>
+    </div>
+    <div id="regions_div" style="width: 1500px; height: 700px;"></div>
+    <button onclick="location.href='index.html'" id="main_button">Back to main</button>
+  </body>
+</html>
